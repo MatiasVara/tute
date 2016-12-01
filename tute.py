@@ -3,9 +3,15 @@
 #
 import pprint
 from telegram.ext import Updater
-updater = Updater (token= 'YOURKEY')
+
+# the key is stored in a separated file named .key
+f = open('.key', 'r')
+
+updater = Updater (token= f.read())
 dispatcher = updater.dispatcher
+
 import logging
+
 logging.basicConfig (format='%(asctime)s - %(message)s',
 		     level=logging.INFO)
 
